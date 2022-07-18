@@ -1304,6 +1304,7 @@ function makeMarketUpdateInstructions(
             modelAsk: ftxAsk,
             fairValue: fairValue,
             oraclePrice: oraclePrice,
+            fundingRate: marketContext.fundingRate,
             bestBid: bestBidAvailable,
             bestAsk: bestAskAvailable,
             cheapness: cheapness,
@@ -1521,7 +1522,7 @@ let takeTimerMap = { marketName: string, lastTakeTime: number }
 
 //creates table
 const EC2Data = db.sequelize.define(
-    "ec2_data",
+    "mm_data",
     {
         time: DataTypes.DATE,
         marketName: DataTypes.STRING,
@@ -1537,6 +1538,7 @@ const EC2Data = db.sequelize.define(
         modelAsk: DataTypes.FLOAT,
         fairValue: DataTypes.FLOAT,
         oraclePrice: DataTypes.FLOAT,
+        fundingRate: DataTypes.FLOAT,
         bestBid: DataTypes.FLOAT,
         bestAsk: DataTypes.FLOAT,
         cheapness: DataTypes.FLOAT,
